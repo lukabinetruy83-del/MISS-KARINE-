@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Karine — Spécialiste en Ongles & Cils | Le Cannet</title>
+    <meta name="description" content="Spécialiste en ongles, extensions de cils & microblading à Le Cannet. Plus de 30 ans d'expertise. Réservez votre soin en ligne sur Planity.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rose-gold: #C9956C;
+            --cream-white: #FDF6F0;
+            --deep-charcoal: #2D2D2D;
+            --blush-pink: #F2C4CE;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--deep-charcoal);
+            background-color: var(--cream-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--rose-gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(201, 149, 108, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #b3845d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 149, 108, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--rose-gold);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sticky Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 12px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--deep-charcoal);
+            opacity: 0.7;
+            margin-top: -4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rose-gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--rose-gold);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--cream-white) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9956c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+            border: 1px solid rgba(201, 149, 108, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--deep-charcoal);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .urgency-strip {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--deep-charcoal);
+            opacity: 0.8;
+            font-weight: 700;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--rose-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            margin-bottom: 40px;
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            background-color: var(--cream-white);
+            border: 1px solid transparent;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--deep-charcoal);
+        }
+
+        .tab-btn.active {
+            background-color: var(--rose-gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(201, 149, 108, 0.2);
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--cream-white);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--rose-gold);
+            box-shadow: 0 10px 30px rgba(201, 149, 108, 0.1);
+        }
+
+        .service-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-duration {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--rose-gold);
+        }
+
+        .service-card .btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--cream-white);
+        }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .monogram-circle {
+            width: 300px;
+            height: 300px;
+            background-color: var(--white);
+            border: 2px solid var(--rose-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 8rem;
+            color: var(--rose-gold);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(201, 149, 108, 0.1);
+        }
+
+        .monogram-circle::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid var(--rose-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .about-content {
+            flex: 1.5;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--rose-gold);
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .pillar {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pillar-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--cream-white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--cream-white);
+            padding: 40px;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--deep-charcoal);
+        }
+
+        .review-author {
+            font-size: 0.85rem;
+            font-weight: 700;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Booking CTA Section */
+        .booking-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--rose-gold) 0%, #b3845d 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .booking-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .booking-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .booking-cta .btn-white {
+            background-color: var(--white);
+            color: var(--rose-gold);
+            font-size: 1.1rem;
+            padding: 18px 40px;
+        }
+
+        .booking-cta .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-link {
+            display: block;
+            margin-top: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact & Hours */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--cream-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hours-table td {
+            padding: 12px 0;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+        }
+
+        .map-placeholder {
+            background-color: var(--white);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            min-height: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(201, 149, 108, 0.1);
+        }
+
+        .map-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--rose-gold);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background-color: var(--deep-charcoal);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--rose-gold);
+        }
+
+        .social-links {
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--rose-gold);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        /* Mobile Bottom Bar */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            padding: 15px 20px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-cta .btn {
+            width: 100%;
+            font-size: 1rem;
+            padding: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-flex { flex-direction: column; gap: 50px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero-btns { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; justify-content: center; }
+            .hero-btns { align-items: center; }
+            .urgency-strip { justify-content: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .pillars { grid-template-columns: 1fr; }
+            .mobile-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .monogram-circle { width: 200px; height: 200px; font-size: 5rem; }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: var(--white);
+            z-index: 2000;
+            transition: var(--transition);
+            padding: 80px 40px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: var(--rose-gold);
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-main">Miss Karine</span>
+                <span class="logo-sub">Ongles · Cils · Beauté</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#tarifs">Tarifs</a>
+                <a href="#about">À propos</a>
+                <a href="#avis">Avis</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-primary">Prendre RDV</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu">&times;</div>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#avis">Avis</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-primary">Prendre RDV</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <div class="badge">⭐ 5.0/5 · Le Cannet, Côte d'Azur</div>
+                    <h1>Sublimez votre beauté avec une expérience unique</h1>
+                    <p>Spécialiste en ongles, extensions de cils & microblading à Le Cannet. Un savoir-faire de plus de 30 ans, à votre service.</p>
+                    <div class="hero-btns">
+                        <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-primary">Réserver mon rendez-vous</a>
+                        <a href="#services" class="btn btn-secondary">Découvrir les prestations</a>
+                    </div>
+                    <div class="urgency-strip">
+                        <span>🗓️ Réservation en ligne 24h/24</span>
+                        <span>•</span>
+                        <span>Confirmation immédiate</span>
+                        <span>•</span>
+                        <span>Paiement sur place</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p>Toutes nos prestations</p>
+                    <h2>Nos Soins & Tarifs</h2>
+                    <p style="text-transform: none; letter-spacing: normal; color: var(--deep-charcoal); opacity: 0.7; margin-top: 10px;">Cliquez sur une catégorie pour voir les soins et tarifs</p>
+                </div>
+
+                <div id="tarifs" class="tabs-container fade-in">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" data-tab="ongles">💅 Ongles</button>
+                        <button class="tab-btn" data-tab="cils">👁️ Extensions de Cils</button>
+                        <button class="tab-btn" data-tab="rehaussement">✨ Rehaussement</button>
+                        <button class="tab-btn" data-tab="microblading">🖊️ Microblading</button>
+                        <button class="tab-btn" data-tab="pieds">🦶 Soin Pieds</button>
+                        <button class="tab-btn" data-tab="epilation">🪒 Épilation</button>
+                        <button class="tab-btn" data-tab="visage">🌿 Soin Visage</button>
+                    </div>
+
+                    <!-- Category 1: Ongles -->
+                    <div class="tab-content active" id="ongles">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>💅 Pose capsules gel ou résine</h3>
+                                    <p>+ couleur</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h30</span>
+                                    <span class="service-price">60€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>💅 Pose sur ongles naturels</h3>
+                                    <p>gel ou résine + couleur</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h15</span>
+                                    <span class="service-price">50€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>💅 Remplissage 3/4 semaines</h3>
+                                    <p>gel ou résine + couleur</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h15</span>
+                                    <span class="service-price">42€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>💅 Remplissage 15 jours</h3>
+                                    <p>gel ou résine + couleur</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">25€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>💅 Semi-permanent mains</h3>
+                                    <p>Pose de vernis semi-permanent</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">55min</span>
+                                    <span class="service-price">25€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Extensions de Cils -->
+                    <div class="tab-content" id="cils">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>👁️ Pose complète volume Léger</h3>
+                                    <p>Effet naturel et élégant</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">2h</span>
+                                    <span class="service-price">80€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>👁️ Pose complète volume Intense</h3>
+                                    <p>Regard glamour et profond</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">3h</span>
+                                    <span class="service-price">105€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>👁️ Entretien 3 semaines Léger</h3>
+                                    <p>Remplissage volume léger</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h15</span>
+                                    <span class="service-price">40€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>👁️ Entretien 3 semaines Intense</h3>
+                                    <p>Remplissage volume intense</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h30</span>
+                                    <span class="service-price">50€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>👁️ Entretien Dépose/Repose</h3>
+                                    <p>Volume Léger</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">2h30</span>
+                                    <span class="service-price">59€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Rehaussement -->
+                    <div class="tab-content" id="rehaussement">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>✨ Lash Lift + Brow Lift</h3>
+                                    <p>Avec teinture incluse</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h30</span>
+                                    <span class="service-price">80€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>✨ Lash Lift avec teinture</h3>
+                                    <p>Courbure naturelle et intense</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h15</span>
+                                    <span class="service-price">60€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>✨ Lash Lift Coréen</h3>
+                                    <p>Avec teinture</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h15</span>
+                                    <span class="service-price">60€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>✨ Lash Lift seul</h3>
+                                    <p>Sans teinture</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">45€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>✨ Brow Lift</h3>
+                                    <p>Rehaussement Sourcils</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">45€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Microblading -->
+                    <div class="tab-content" id="microblading">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🖊️ Microblading sourcils</h3>
+                                    <p>Maquillage semi-permanent poil à poil</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">2h</span>
+                                    <span class="service-price">220€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🖊️ Retouche annuelle</h3>
+                                    <p>Entretien du microblading</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">120€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 5: Pieds -->
+                    <div class="tab-content" id="pieds">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🦶 Beauté des pieds</h3>
+                                    <p>Soin complet des pieds</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">25€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🦶 Semi-permanent pieds</h3>
+                                    <p>Pose de vernis semi-permanent</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">30min</span>
+                                    <span class="service-price">25€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 6: Epilation -->
+                    <div class="tab-content" id="epilation">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🪒 Sourcils ou lèvre</h3>
+                                    <p>Épilation à la cire</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">10min</span>
+                                    <span class="service-price">10€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🪒 Aisselles</h3>
+                                    <p>Épilation à la cire</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">30min</span>
+                                    <span class="service-price">13€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🪒 Demi-jambes</h3>
+                                    <p>Épilation à la cire</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">25min</span>
+                                    <span class="service-price">15€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🪒 Jambes entières</h3>
+                                    <p>Épilation à la cire</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">35min</span>
+                                    <span class="service-price">25€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 7: Visage -->
+                    <div class="tab-content" id="visage">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-info">
+                                    <h3>🌿 Nettoyage de peau</h3>
+                                    <p>Soin visage purifiant et relaxant</p>
+                                </div>
+                                <div class="service-meta">
+                                    <span class="service-duration">1h</span>
+                                    <span class="service-price">45€</span>
+                                </div>
+                                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-secondary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-flex fade-in">
+                    <div class="about-image">
+                        <div class="monogram-circle">MK</div>
+                    </div>
+                    <div class="about-content">
+                        <h2>Une passion, 30 ans d'expertise</h2>
+                        <p class="about-text">
+                            "Diplômée d'esthétique depuis 1993, j'ai ouvert mon institut en 2000 sur Le Cannet que j'ai fait vivre avec passion pendant 10 ans. J'ai ensuite choisi de poursuivre à la maison, pour concilier ma passion et ma vie de maman. Amoureuse du travail minutieux, je me suis naturellement tournée vers les ongles, les extensions de cils et le microblading. Perfectionniste, douce et à l'écoute, j'aime sublimer la beauté de chaque femme avec soin et bienveillance."
+                        </p>
+                        <div class="pillars">
+                            <div class="pillar">
+                                <span class="pillar-icon">🎓</span>
+                                <span class="pillar-text">Diplômée depuis 1993</span>
+                            </div>
+                            <div class="pillar">
+                                <span class="pillar-icon">💛</span>
+                                <span class="pillar-text">30 ans de passion</span>
+                            </div>
+                            <div class="pillar">
+                                <span class="pillar-icon">🏠</span>
+                                <span class="pillar-text">Espace intimiste</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="avis" class="testimonials">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <p>Témoignages</p>
+                    <h2>Ce que disent mes clientes</h2>
+                    <div class="rating-badge">
+                        <span>⭐ 5.0 / 5</span>
+                        <span>•</span>
+                        <span>13 avis vérifiés</span>
+                    </div>
+                </div>
+
+                <div class="reviews-grid fade-in">
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Toujours constante dans la perfection"</p>
+                        <p class="review-author">Cliente fidèle, mars 2026</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Prestation top, superbe, recommande ++++"</p>
+                        <p class="review-author">Sophie, fév. 2026</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Merci Karine, j'ai retrouvé mes ongles, super prestation, je suis ravie 🥰"</p>
+                        <p class="review-author">Isabelle, fév. 2026</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Absolument parfait, à conseiller, une vraie professionnelle !!"</p>
+                        <p class="review-author">Cliente, fév. 2026</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Parfaite !! (plus de 16 ans de fidélité)"</p>
+                        <p class="review-author">Cliente fidèle, fév. 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking CTA Section -->
+        <section class="booking-cta fade-in">
+            <div class="container">
+                <h2>Prête à vous faire chouchouter ?</h2>
+                <p>Réservez votre soin en ligne, 24h/24, gratuitement. Confirmation immédiate. Paiement sur place le jour J.</p>
+                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-white">Réserver maintenant sur Planity</a>
+                <a href="tel:0620379380" class="phone-link">Ou appelez directement : 06.20.37.93.80</a>
+            </div>
+        </section>
+
+        <!-- Contact & Hours -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid fade-in">
+                    <div class="contact-info">
+                        <h3>Contact & Horaires</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span>📍</span>
+                                <span>3 Rue des Roses, 06110 Le Cannet</span>
+                            </div>
+                            <div class="contact-item">
+                                <span>📞</span>
+                                <span>06.20.37.93.80</span>
+                            </div>
+                            <div class="contact-item">
+                                <span>📸</span>
+                                <a href="https://instagram.com/misskarine06" target="_blank">Instagram: @misskarine06</a>
+                            </div>
+                        </div>
+
+                        <table class="hours-table">
+                            <tr><td>Lundi</td><td>09h00 – 18h30</td></tr>
+                            <tr><td>Mardi</td><td>14h00 – 18h30</td></tr>
+                            <tr><td>Mercredi</td><td>09h00 – 18h30</td></tr>
+                            <tr><td>Jeudi</td><td>09h00 – 18h30</td></tr>
+                            <tr><td>Vendredi</td><td>09h00 – 18h30</td></tr>
+                            <tr><td>Samedi</td><td>09h00 – 12h00</td></tr>
+                            <tr><td>Dimanche</td><td>Fermé</td></tr>
+                        </table>
+                    </div>
+                    <div class="contact-map">
+                        <div class="map-placeholder">
+                            <div class="map-icon">📍</div>
+                            <h4>Retrouvez-moi au Cannet</h4>
+                            <p style="margin-bottom: 20px; opacity: 0.7;">3 Rue des Roses, 06110 Le Cannet</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=3+Rue+des+Roses+06110+Le+Cannet" target="_blank" class="btn btn-secondary">Voir sur Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Miss Karine</span>
+            <p>Spécialiste en Ongles & Cils · Le Cannet</p>
+            <div class="social-links">
+                <a href="https://instagram.com/misskarine06" target="_blank" class="social-icon">📸</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank">Réserver en ligne</a>
+                <a href="#">Mentions légales</a>
+            </div>
+            <p class="copyright">© 2026 Miss Karine – Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Bar -->
+    <div class="mobile-cta">
+        <a href="https://www.planity.com/miss-karine-specialiste-en-ongles-et-cils-06110-le-cannet" target="_blank" class="btn btn-primary">📅 Réserver maintenant</a>
+    </div>
+
+    <script>
+        // Sticky Header Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        };
+
+        hamburger.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Tab System
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-tab');
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // Fade-in on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth Scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
